@@ -20,7 +20,10 @@ export class KillOnSignal implements FlowController {
         (['SIGINT', 'SIGTERM', 'SIGHUP'] as NodeJS.Signals[]).forEach((signal) => {
             this.process.on(signal, () => {
                 caughtSignal = signal;
-                commands.forEach((command) => command.kill(signal));
+                // fork: commented as per https://github.com/open-cli-tools/concurrently/issues/283#issuecomment-878452792
+                // in order to have double kill command being sent to firebase,
+                // thus resulting into a failure while dumping data on exit
+                // commands.forEach((command) => command.kill(signal));
             });
         });
 
