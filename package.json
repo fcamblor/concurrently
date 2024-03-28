@@ -1,6 +1,6 @@
 {
-  "name": "concurrently",
-  "version": "8.2.2",
+  "name": "@fcamblor/concurrently",
+  "version": "8.2.2-for-firebase",
   "description": "Run commands concurrently",
   "main": "index.js",
   "types": "dist/src/index.d.ts",
